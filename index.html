@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Generation System</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Music Generation System</h1>
+    </header>
+    <main>
+        <!-- 첫 번째 행 -->
+        <div class="flex-container-row" data-row="1">
+            <!-- 업로드 섹션 -->
+            <section class="upload-section">
+                <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+                    <h2>Upload WAV File</h2>
+                    <div>
+                        <label for="audio-file">Choose a file:</label>
+                        <br>
+                        <input type="file" id="audio-file" name="audio-file" accept=".wav" required>
+                    </div>
+                    <div>
+                        <button type="submit">Upload</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- 입력 음악 재생 섹션 -->
+            <section class="player-section">
+                <h2>Playback</h2>
+                <audio id="audio-player-row-1" controls style="display: none;">
+                    <source id="audio-source-row-1" src="" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+            </section>
+        </div>
+        
+        <!-- 두 번째 행 -->
+        <div class="flex-container-row" data-row="2">
+            <!-- 캡션 생성 버튼 섹션 -->
+            <section class="lpm-section">
+                <h2>Analyze Input Music</h2>
+                <div>
+                    <button id="music-analysis-button">Analyze Music</button>
+                </div>
+            </section>
+
+            <!-- 생성된 캡션 표시 섹션 -->
+            <section class="lpm-section">
+                <h2>Generated Caption</h2>
+                <div id="generated-caption-row-2" style="display: none;">
+                    <!-- 생성된 캡션 표시 -->
+                </div>
+            </section>
+        </div>
+        
+        <!-- 세 번째 행 -->
+        <div class="flex-container-row" data-row="3">
+            <!-- 텍스트 입력 및 버튼 섹션 -->
+            <section class="text-input-section">
+                <h2>Enter Text for Music</h2>
+                <textarea id="additional-text" name="additional-text" rows="4" placeholder="Enter text for music generation..."></textarea>
+                <div>
+                    <button id="generate-music-button-row-3">Generate Music</button>
+                </div>
+            </section>
+
+            <!-- 재생성된 음악 캡션 표시 섹션 -->
+            <section class="generated-caption-section">
+                <h2>Generated Caption</h2>
+                <div id="generated-caption-row-3" style="display: none;">
+                    <!-- 재생성된 캡션 표시 -->
+                </div>
+            </section>
+        </div>
+        
+        <!-- 네 번째 행 -->
+        <div class="flex-container-row" data-row="4">
+            <!-- 음악 생성 버튼 섹션 -->
+            <section class="button-section">
+                <h2>Click button to generate Music</h2>
+                <div>
+                    <button id="generate-music-button-row-4">Generate Music</button>
+                </div>
+            </section>
+
+            <!-- 생성된 음악 재생 섹션 -->
+            <section class="generated-music-section">
+                <h2>Generated Music</h2>
+                <audio id="generated-music-player-row-4" controls style="display: none;"> 
+                    <source id="generated-music-source-row-4" src="" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+            </section>
+        </div>
+    </main>
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>
